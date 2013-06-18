@@ -1063,16 +1063,16 @@ dp_actions_validate(struct datapath *dp, size_t actions_num, struct ofl_action_h
 ofl_err
 dp_actions_check_set_field_req(struct ofl_msg_flow_mod *msg, size_t actions_num, struct ofl_action_header **actions){
     size_t i;
-
+/*
     for (i=0; i < actions_num; i++) {
         if (actions[i]->type == OFPAT_SET_FIELD) {
             struct ofl_action_set_field *as = (struct ofl_action_set_field*)actions[i];
             struct oxm_field  *f;
 
             f = oxm_field_lookup(as->field->header);
-
+*/
             /*There is no match field, so the prerequisites are not present*/
-            if (msg->match->length == 0 && f->dl_type[0] != 0)
+/*            if (msg->match->length == 0 && f->dl_type[0] != 0)
                 return ofl_error(OFPET_BAD_ACTION, OFPBAC_MATCH_INCONSISTENT);
 
             if(!oxm_prereqs_ok(f, (struct ofl_match*) msg->match)) {
@@ -1081,5 +1081,5 @@ dp_actions_check_set_field_req(struct ofl_msg_flow_mod *msg, size_t actions_num,
 
         }
     }
-    return 0;
+*/    return 0;
 }
